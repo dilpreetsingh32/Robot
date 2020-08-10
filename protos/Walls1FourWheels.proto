@@ -1,0 +1,25 @@
+PROTO Walls1FourWheels [
+  field SFVec3f    translation  0 0 0
+  field SFRotation rotation     0 1 0 0
+  field SFFloat    bodyMass     1
+]
+{
+  DEF Wall_1 Solid {
+  translation IS translation
+  rotation IS rotation
+  children [
+    DEF Wall_Shape Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        roughness 0.5
+        metalness 0
+      }
+      geometry Box {
+        size 0.03 0.3 1
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE Wall_Shape
+}
+}
